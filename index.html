@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Learning Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Typing animation for header text */
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Blinking caret animation */
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Apply typing animation */
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid black; /* Cursor effect */
+            width: 0;
+            animation: typing 3s steps(30) 1s forwards, blink-caret 0.75s step-end infinite, remove-caret 3s 1s forwards;
+        }
+
+        /* After typing animation is complete, remove the caret */
+        @keyframes remove-caret {
+            100% {
+                border-right: transparent;
+            }
+        }
+
+        /* Animation for changing background colors of the header */
+        @keyframes changeBgColor {
+            0% {
+                background: linear-gradient(to right, #9c27b0, #2196f3); /* Purple to Blue */
+            }
+            25% {
+                background: linear-gradient(to right, #ff5722, #ffc107); /* Orange to Yellow */
+            }
+            50% {
+                background: linear-gradient(to right, #4caf50, #8bc34a); /* Green to Light Green */
+            }
+            75% {
+                background: linear-gradient(to right, #00bcd4, #673ab7); /* Cyan to Purple */
+            }
+            100% {
+                background: linear-gradient(to right, #9c27b0, #2196f3); /* Back to Purple to Blue */
+            }
+        }
+
+        /* Applying animation to the header */
+        header {
+            animation: changeBgColor 16s ease-in-out infinite; /* 16 seconds for complete cycle */
+        }
+
+        /* Animation for button background colors */
+        @keyframes buttonColorChange {
+            0% {
+                background-color: #38b2ac; /* Teal */
+            }
+            25% {
+                background-color: #e53e3e; /* Red */
+            }
+            50% {
+                background-color: #ed8936; /* Orange */
+            }
+            75% {
+                background-color: #9b2c2c; /* Dark Red */
+            }
+            100% {
+                background-color: #38b2ac; /* Back to Teal */
+            }
+        }
+
+        /* Apply button color change animation */
+        .button-animation {
+            animation: buttonColorChange 16s ease-in-out infinite;
+        }
+
+        /* Fix issue with content visibility on smaller screens */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+       <!-- Responsive Adjustments -->
+       <style>
+        /* Make sure the header text stays centered on small screens */
+        @media (max-width: 640px) {
+            header {
+                padding-top: 10rem;
+                padding-bottom: 8rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .button-animation {
+                width: 100%;
+            }
+
+            .typing-animation {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Adjust button layout for small screens */
+        @media (max-width: 768px) {
+            .button-animation {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            header {
+                padding-top: 8rem;
+                padding-bottom: 6rem;
+            }
+        }
+
+        /* Larger screens: Set the header size and buttons */
+        @media (min-width: 1024px) {
+            header {
+                padding-top: 12rem;
+                padding-bottom: 12rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- Header Section with Animated Background Color -->
+    <header class="text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-wide">
+                <span class="typing-animation " style="line-height: normal;">HTML Learning Guide Basic</span>
+            </h1>
+            <p class="mt-4 text-lg sm:text-xl font-light">Master HTML concepts with practical examples and resources</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-6">
+                <!-- First Button with Animation -->
+                <a href="https://aqibrk.github.io/AqibKhan-Portfolio/" 
+                   class="px-8 py-3 text-white rounded-full shadow-lg hover:bg-teal-600 transition-all duration-300 ease-in-out button-animation">
+                    Created by Sir Aqib Khan
+                </a>
+                <!-- Second Button with Animation -->
+                <a href="https://aqibkhan.freewebhostmost.com/code.php" 
+                   class="px-8 py-3 text-white rounded-full shadow-lg hover:bg-yellow-600 transition-all duration-300 ease-in-out button-animation">
+                    Life Editor
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section with Minimalist Style -->
+    <nav class="bg-white text-gray-800 shadow-md py-4 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-center space-x-6 sm:space-x-8">
+            <a href="basic.php" class="text-lg font-semibold px-5 py-2 rounded-md hover:bg-gray-200 transition duration-300 ease-in-out">Basic</a>
+            <a href="Intermediate.php" class="text-lg font-semibold px-5 py-2 rounded-md hover:bg-gray-200 transition duration-300 ease-in-out">Intermediate</a>
+            <a href="Advanced.php" class="text-lg font-semibold px-5 py-2 rounded-md hover:bg-gray-200 transition duration-300 ease-in-out">Advanced</a>
+        </div>
+    </nav>
+
+
+
+    <main class="container mx-auto py-8 px-4 space-y-8">
+        <!-- Section 1: HTML Introduction -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">1. HTML Introduction</h2>
+            <p class="mt-2">An overview of HTML and its purpose in creating web pages.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code1" class="text-sm font-mono">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Introduction&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to HTML!&lt;/h1&gt;
+    &lt;p&gt;This is a basic HTML page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <button onclick="copyCode('code1')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas1.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 2: HTML Syntax -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">2. HTML Syntax</h2>
+            <p class="mt-2">The basic structure of an HTML document.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code2" class="text-sm font-mono">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;HTML Syntax&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Heading&lt;/h1&gt;
+    &lt;p&gt;Paragraph text.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <button onclick="copyCode('code2')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas1.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 3: HTML Elements -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">3. HTML Elements</h2>
+            <p class="mt-2">HTML elements are the building blocks of web pages, defined by tags.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code3" class="text-sm font-mono">
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;
+This is a link.&lt;/a&gt;
+                </pre>
+                <button onclick="copyCode('code3')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas3.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 4: HTML Attributes -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">4. HTML Attributes</h2>
+            <p class="mt-2">Attributes provide additional information about an element.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code4" class="text-sm font-mono">
+&lt;a href="https://example.com"&gt;Open Link&lt;/a&gt;
+&lt;img src="image.jpg" alt="Sample Image"&gt;
+                </pre>
+                <button onclick="copyCode('code4')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas4.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 5: HTML Headings -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">5. HTML Headings</h2>
+            <p class="mt-2">Six levels of headings from &lt;h1&gt; to &lt;h6&gt;.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code5" class="text-sm font-mono">
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Sub-subheading&lt;/h3&gt;
+                </pre>
+                <button onclick="copyCode('code5')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas5.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 6: HTML Paragraphs -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">6. HTML Paragraphs</h2>
+            <p class="mt-2">Paragraphs are used to group text content into blocks.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code6" class="text-sm font-mono">
+&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;
+                </pre>
+                <button onclick="copyCode('code6')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas6.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 7: HTML Lists -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">7. HTML Lists</h2>
+            <p class="mt-2">Create ordered and unordered lists.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code7" class="text-sm font-mono">
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;First&lt;/li&gt;
+    &lt;li&gt;Second&lt;/li&gt;
+&lt;/ol&gt;
+                </pre>
+                <button onclick="copyCode('code7')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas7.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 8: HTML Links -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">8. HTML Links</h2>
+            <p class="mt-2">Create hyperlinks to other pages or resources.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code8" class="text-sm font-mono">
+&lt;a href="https://example.com"&gt; Example&lt;/a&gt;
+                </pre>
+                <button onclick="copyCode('code8')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas8.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 9: HTML Images -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">9. HTML Images</h2>
+            <p class="mt-2">Embed images using the &lt;img&gt; tag.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code9" class="text-sm font-mono">
+&lt;img src="image.jpg" alt="Des of Image"&gt;
+                </pre>
+                <button onclick="copyCode('code9')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/bas9.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+
+        <!-- Section 10: HTML Div and Span -->
+        <section>
+            <h2 class="text-2xl font-semibold text-blue-600">10. HTML Div and Span</h2>
+            <p class="mt-2">Generic containers for structuring content.</p>
+            <div class="bg-gray-200 p-4 rounded-md mt-4">
+                <pre id="code10" class="text-sm font-mono">
+&lt;div&gt;
+    &lt;p&gt;This is a block-level element.&lt;/p&gt;
+&lt;/div&gt;
+&lt;span&gt;This is an inline element.&lt;/span&gt;
+                </pre>
+                <button onclick="copyCode('code10')" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+        <img src="html/in10.png" alt="CSS Introduction" class="mt-4 w-full max-w-md mx-auto rounded-md shadow">
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Aqib Khan. All rights reserved.</p>
+            <a href="https://aqibkhan.freewebhostmost.com/code.php" class="inline-block bg-white text-blue-600 font-semibold py-2 px-4 mt-2 rounded hover:bg-blue-700 hover:text-white transition">
+                Life Editor
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(codeId) {
+            const codeBlock = document.getElementById(codeId);
+            const range = document.createRange();
+            range.selectNode(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>
